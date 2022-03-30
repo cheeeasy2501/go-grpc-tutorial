@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package adder;
+
+// куда мы будем закидывать пакет указываем в go_out путь, к которому добавиться эта опция
+option go_package = "./adder";
+
+// Описываем сервис, методы и что возвращает
+service Adder {
+  rpc Add(AddRequest) returns (AddResponse) {}
+}
+
+// message описывает структуры с данными, которые она хранит. применяются в качестве аргумента в service
+message AddRequest {
+  int32  x = 1;
+  int32 y = 2;
+}
+
+message AddResponse {
+  int32 result = 1;
+}
